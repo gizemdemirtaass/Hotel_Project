@@ -1,0 +1,57 @@
+﻿@model Otel.Models.Odalar
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Sil</h2>
+
+<h3>Silmek istediğinize emin misiniz?</h3>
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OdaFiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdaFiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YatakSayisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YatakSayisi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OdaTuru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdaTuru)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServisNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServisNo)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Geri", "Index")
+        </div>
+    }
+</div>

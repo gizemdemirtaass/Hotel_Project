@@ -1,0 +1,44 @@
+﻿@model Otel.Models.Servisler
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Sil</h2>
+<h2>Sil</h2>
+
+<h3>Silmek istediğinize emin misiniz?</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ServisAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServisAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServisUcret)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServisUcret)
+        </dd>
+
+        
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Geri", "Index")
+        </div>
+    }
+</div>

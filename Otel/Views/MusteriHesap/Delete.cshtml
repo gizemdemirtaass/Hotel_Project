@@ -1,0 +1,70 @@
+﻿@model Otel.Models.MusteriHesabi
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Sil</h2>
+
+<h3>Silmek istediğinize emin misiniz?</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SonHesap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SonHesap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GirisTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GirisTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CikisTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CikisTarihi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.KisiSayisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KisiSayisi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OdaNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdaNo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mno)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Geri", "Index")
+        </div>
+    }
+</div>
+

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Otel.Models.MusteriHesabi>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Müşteri Hesap Listesi</h2>
+
+<p>
+    @Html.ActionLink("Müşteri Hesabı Oluştur", "Yeni", null, new { @class = "btn btn-success" })
+</p>
+<table class="table-striped alert-danger col-md-12">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(Model => Model.SonHesap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.GirisTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.CikisTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.KisiSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.OdaNo)  @*tablodaki kolonların başlıklarını buradan getiriyoruz!!*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.Mno)
+        </th>
+        <th>
+
+        </th>
+
+    </tr>
+    @foreach (var item in Model)  //@ işareeti razor view engine dır!! c# kodu yazmamızı sağlar!!
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(Model => item.SonHesap)
+    </td>
+    <td>
+        @Html.DisplayFor(Model => item.GirisTarihi)
+    </td>
+    <td>
+        @Html.DisplayFor(Model => item.CikisTarihi)
+    </td>
+    <td>
+        @Html.DisplayFor(Model => item.KisiSayisi)
+    </td>
+    <td>
+        @Html.DisplayFor(Model => item.OdaNo) 
+    </td>
+    <td>
+        @Html.DisplayFor(Model => item.Mno)
+    </td>
+    <td>
+        @Html.ActionLink("Düzenle", "Duzenle", new { id = item.IslemNo }, new { @class = "btn btn-success" }) @*//id yi controllerda tanımlamış olman gerek!!*@
+        @Html.ActionLink("Sil", "Delete", new { id = item.IslemNo }, new { @class = "btn btn-success" }) @*//sil url adı, delete de actionresult adıdır!!*@
+    </td>
+</tr>
+
+
+    }
+</table>
+
+
