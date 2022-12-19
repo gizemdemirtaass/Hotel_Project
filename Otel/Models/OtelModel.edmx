@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="OtelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="OtelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="MusteriHesabi">
           <Key>
             <PropertyRef Name="IslemNo" />
@@ -112,7 +112,8 @@
             <End Role="Odalar" EntitySet="Odalar" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OtelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -163,6 +164,17 @@
           <Property Name="ServisUcret" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="Odalars" Relationship="Self.FK_Odalar_Servisler" FromRole="Servisler" ToRole="Odalar" />
         </EntityType>
+        <EntityType Name="UserMaster">
+          <Key>
+            <PropertyRef Name="Userid" />
+          </Key>
+          <Property Name="Userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isActive" Type="Boolean" />
+          <Property Name="Role" Type="Int32" />
+        </EntityType>
         <Association Name="FK_MusteriHesabi_MusteriKayit">
           <End Role="MusteriKayit" Type="Self.MusteriKayit" Multiplicity="0..1" />
           <End Role="MusteriHesabi" Type="Self.MusteriHesabi" Multiplicity="*" />
@@ -199,11 +211,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="OtelEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="OtelEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="MusteriHesabis" EntityType="Self.MusteriHesabi" />
           <EntitySet Name="MusteriKayits" EntityType="Self.MusteriKayit" />
           <EntitySet Name="Odalars" EntityType="Self.Odalar" />
           <EntitySet Name="Servislers" EntityType="Self.Servisler" />
+          <EntitySet Name="UserMasters" EntityType="Self.UserMaster" />
           <AssociationSet Name="FK_MusteriHesabi_MusteriKayit" Association="Self.FK_MusteriHesabi_MusteriKayit">
             <End Role="MusteriKayit" EntitySet="MusteriKayits" />
             <End Role="MusteriHesabi" EntitySet="MusteriHesabis" />
@@ -216,25 +229,13 @@
             <End Role="Servisler" EntitySet="Servislers" />
             <End Role="Odalar" EntitySet="Odalars" />
           </AssociationSet>
-          <EntitySet Name="UserMasters" EntityType="OtelModel.UserMaster" />
         </EntityContainer>
-        <EntityType Name="UserMaster">
-          <Key>
-            <PropertyRef Name="Userid" />
-          </Key>
-          <Property Name="Userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="isActive" Type="Boolean" />
-          <Property Name="Role" Type="Int32" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="OtelModelStoreContainer" CdmEntityContainer="OtelEntities">
+        <EntityContainerMapping StorageEntityContainer="OtelModelStoreContainer" CdmEntityContainer="OtelEntities1">
           <EntitySetMapping Name="MusteriHesabis">
             <EntityTypeMapping TypeName="OtelModel.MusteriHesabi">
               <MappingFragment StoreEntitySet="MusteriHesabi">
@@ -283,12 +284,12 @@
           <EntitySetMapping Name="UserMasters">
             <EntityTypeMapping TypeName="OtelModel.UserMaster">
               <MappingFragment StoreEntitySet="UserMaster">
-                <ScalarProperty Name="Role" ColumnName="Role" />
-                <ScalarProperty Name="isActive" ColumnName="isActive" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

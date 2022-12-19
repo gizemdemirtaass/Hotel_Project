@@ -9,7 +9,7 @@ namespace Otel.Controllers
 {
     public class MusteriHesapController : Controller
     {
-        OtelEntities db = new OtelEntities();
+        OtelEntities1 db = new OtelEntities1();
 
         [HttpGet]
         public ActionResult Index()
@@ -26,7 +26,7 @@ namespace Otel.Controllers
         {
             try
             {
-                using (OtelEntities db = new OtelEntities())
+                using (OtelEntities1 db = new OtelEntities1())
                 {
                     db.MusteriHesabis.Add(ekle);
                     db.SaveChanges();
@@ -42,7 +42,7 @@ namespace Otel.Controllers
         [HttpGet]
         public ActionResult Duzenle(int id)
         {
-            using (OtelEntities db = new OtelEntities())
+            using (OtelEntities1 db = new OtelEntities1())
             {
                 var result = db.MusteriHesabis.Where(x => x.IslemNo == id).FirstOrDefault();
                 return View(result);
@@ -53,7 +53,7 @@ namespace Otel.Controllers
         {
             try
             {
-                using (OtelEntities db = new OtelEntities())
+                using (OtelEntities1 db = new OtelEntities1())
                 {
                     db.Entry(duzenle).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
@@ -70,9 +70,9 @@ namespace Otel.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            using (OtelEntities db = new OtelEntities())
+            using (OtelEntities1 db = new OtelEntities1())
             {
-                return View(db.MusteriHesabis.Where(x => x.OdaNo == id).FirstOrDefault());
+                return View(db.MusteriHesabis.Where(x => x.IslemNo == id).FirstOrDefault());
             }
         }
         [HttpPost]
@@ -80,7 +80,7 @@ namespace Otel.Controllers
         {
             try
             {
-                using (OtelEntities db = new OtelEntities())
+                using (OtelEntities1 db = new OtelEntities1())
                 {
                     sil = db.MusteriHesabis.Where(x => x.IslemNo == id).FirstOrDefault();
                     db.MusteriHesabis.Remove(sil);

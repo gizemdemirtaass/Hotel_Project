@@ -116,15 +116,15 @@
     <Content Include="AdminTema\register.html" />
     <Content Include="AdminTema\tables.html" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Otel.Context.tt">
+    <Content Include="Models\OtelModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Otel.Context.cs</LastGenOutput>
-      <DependentUpon>Otel.edmx</DependentUpon>
+      <DependentUpon>OtelModel.edmx</DependentUpon>
+      <LastGenOutput>OtelModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Otel.tt">
+    <Content Include="Models\OtelModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Otel.edmx</DependentUpon>
-      <LastGenOutput>Otel.cs</LastGenOutput>
+      <DependentUpon>OtelModel.edmx</DependentUpon>
+      <LastGenOutput>OtelModel.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
     <Content Include="WebTema\about-us.html" />
@@ -220,46 +220,46 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\MusteriHesabi.cs">
-      <DependentUpon>Otel.tt</DependentUpon>
+      <DependentUpon>OtelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MusteriKayit.cs">
-      <DependentUpon>Otel.tt</DependentUpon>
+      <DependentUpon>OtelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Odalar.cs">
-      <DependentUpon>Otel.tt</DependentUpon>
+      <DependentUpon>OtelModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Otel.Context.cs">
+    <Compile Include="Models\OtelModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Otel.Context.tt</DependentUpon>
+      <DependentUpon>OtelModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Otel.cs">
+    <Compile Include="Models\OtelModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Otel.tt</DependentUpon>
+      <DependentUpon>OtelModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Otel.Designer.cs">
+    <Compile Include="Models\OtelModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Otel.edmx</DependentUpon>
+      <DependentUpon>OtelModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Servisler.cs">
-      <DependentUpon>Otel.tt</DependentUpon>
+      <DependentUpon>OtelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserMaster.cs">
-      <DependentUpon>Otel.tt</DependentUpon>
+      <DependentUpon>OtelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Models\Otel.edmx">
+    <EntityDeploy Include="Models\OtelModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Otel.Designer.cs</LastGenOutput>
+      <LastGenOutput>OtelModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Otel.edmx.diagram">
-      <DependentUpon>Otel.edmx</DependentUpon>
+    <Content Include="Models\OtelModel.edmx.diagram">
+      <DependentUpon>OtelModel.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />

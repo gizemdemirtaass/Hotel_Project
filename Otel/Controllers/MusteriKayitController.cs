@@ -9,7 +9,7 @@ namespace Otel.Controllers
 {
     public class MusteriKayitController : Controller
     {
-        OtelEntities db = new OtelEntities();
+        OtelEntities1 db = new OtelEntities1();
 
         [HttpGet]
         public ActionResult Index()
@@ -26,7 +26,7 @@ namespace Otel.Controllers
         {
             try
             {
-                using (OtelEntities db = new OtelEntities())
+                using (OtelEntities1 db = new OtelEntities1())
                 {
                     db.MusteriKayits.Add(ekle);
                     db.SaveChanges();
@@ -42,7 +42,7 @@ namespace Otel.Controllers
         [HttpGet]
         public ActionResult Duzenle(int id)
         {
-            using (OtelEntities db = new OtelEntities())
+            using (OtelEntities1 db = new OtelEntities1())
             {
                 //var result = db.MusteriKayits.Where(x => x.MNo == id).FirstOrDefault();
                 return View(db.MusteriKayits.Where(x => x.MNo == id).FirstOrDefault());
@@ -53,7 +53,7 @@ namespace Otel.Controllers
         {
             try
             {
-                using (OtelEntities db = new OtelEntities())
+                using (OtelEntities1 db = new OtelEntities1())
                 {
                     db.Entry(duzenle).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
@@ -70,7 +70,7 @@ namespace Otel.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            using (OtelEntities db = new OtelEntities())
+            using (OtelEntities1 db = new OtelEntities1())
             {
                 return View(db.MusteriKayits.Where(x => x.MNo == id).FirstOrDefault());
             }
@@ -80,7 +80,7 @@ namespace Otel.Controllers
         {
             try
             {
-                using (OtelEntities db = new OtelEntities())
+                using (OtelEntities1 db = new OtelEntities1())
                 {
                     sil = db.MusteriKayits.Where(x => x.MNo == id).FirstOrDefault();
                     db.MusteriKayits.Remove(sil);

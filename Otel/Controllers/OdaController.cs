@@ -8,7 +8,7 @@ namespace Otel.Controllers
     public class OdaController : Controller
     {
         
-            OtelEntities db = new OtelEntities();
+            OtelEntities1 db = new OtelEntities1();
 
             [HttpGet] 
             public ActionResult Index() 
@@ -25,7 +25,7 @@ namespace Otel.Controllers
             {
                 try
                 {
-                    using (OtelEntities db = new OtelEntities())
+                    using (OtelEntities1 db = new OtelEntities1())
                     {
                         db.Odalars.Add(ekle);
                         db.SaveChanges();
@@ -41,7 +41,7 @@ namespace Otel.Controllers
             [HttpGet]
             public ActionResult Duzenle(int id)
             {
-                using (OtelEntities db = new OtelEntities())
+                using (OtelEntities1 db = new OtelEntities1())
                 {
                     return View(db.Odalars.Where(x => x.OdaNo == id).FirstOrDefault());
                 }
@@ -51,7 +51,7 @@ namespace Otel.Controllers
             {
                 try
                 {
-                    using (OtelEntities db = new OtelEntities())
+                    using (OtelEntities1 db = new OtelEntities1())
                     {
                         db.Entry(duzenle).State = System.Data.Entity.EntityState.Modified;
                         db.SaveChanges();
@@ -68,7 +68,7 @@ namespace Otel.Controllers
             [HttpGet]
             public ActionResult Delete(int id)
             {
-                using (OtelEntities db = new OtelEntities())
+                using (OtelEntities1 db = new OtelEntities1())
                 {
                     return View(db.Odalars.Where(x => x.OdaNo == id).FirstOrDefault());
                 }
@@ -78,7 +78,7 @@ namespace Otel.Controllers
             {
                 try
                 {
-                    using (OtelEntities db = new OtelEntities())
+                    using (OtelEntities1 db = new OtelEntities1())
                     {
                         sil = db.Odalars.Where(x => x.OdaNo == id).FirstOrDefault();
                         db.Odalars.Remove(sil);

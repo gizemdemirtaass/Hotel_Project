@@ -13,10 +13,10 @@ namespace Otel.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class OtelEntities : DbContext
+    public partial class OtelEntities1 : DbContext
     {
-        public OtelEntities()
-            : base("name=OtelEntities")
+        public OtelEntities1()
+            : base("name=OtelEntities1")
         {
         }
     

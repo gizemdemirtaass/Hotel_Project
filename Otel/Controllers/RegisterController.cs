@@ -13,7 +13,7 @@ namespace Otel.Controllers
 
        
         // GET: Register
-        OtelEntities db = new OtelEntities();
+        OtelEntities1 db = new OtelEntities1();
 
         [HttpGet]
         public ActionResult Index()
@@ -29,7 +29,7 @@ namespace Otel.Controllers
         {
             try
             {
-                using (OtelEntities db = new OtelEntities())
+                using (OtelEntities1 db = new OtelEntities1())
                 {
                     db.UserMasters.Add(ekle);
                     db.SaveChanges();

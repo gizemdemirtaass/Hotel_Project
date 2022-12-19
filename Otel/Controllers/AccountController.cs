@@ -22,7 +22,7 @@ namespace Otel.Controllers
             [HttpPost]
             public ActionResult Login(User user)
             {
-                using (OtelEntities db = new OtelEntities()) 
+                using (OtelEntities1 db = new OtelEntities1()) 
                 {
                     var result = db.UserMasters.Where(x => x.Username == user.Username && x.Password == user.Password1);
                     if (result.Count() != 0)
